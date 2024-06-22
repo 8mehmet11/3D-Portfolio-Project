@@ -15,7 +15,10 @@ jobs:
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/projects:Responsive-Website-Design -f Src-Image/Dockerfile Src-Image
              
     - name: Docker Login
-      run: echo ${{ secrets.DOCKER_PWD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      uses: docker/login-action@v3
+      with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image to Dockerhub Public Repo
       run: docker push ${{ secrets.DOCKER_USERNAME }}/projects:3D-Portfolio-Website
