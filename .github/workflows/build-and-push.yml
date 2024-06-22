@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       
     - name: Build the Docker image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/projects:3D-Portfolio-Website -f Src-Image/Dockerfile Src-Image
