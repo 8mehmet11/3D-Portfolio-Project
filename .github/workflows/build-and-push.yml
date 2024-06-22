@@ -12,19 +12,19 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Build the Docker image
-      run: docker build -t herraksoy/projects:3D-Portfolio-Website -f Src-Image/Dockerfile Src-Image  
+      run: docker build -t 8mehmet11/projects:3D-Portfolio-Website -f Src-Image/Dockerfile Src-Image  
 
     - name: Docker Login
       run: echo ${{ secrets.DOCKER_PWD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
     - name: Push Docker image to Dockerhub Public Repo
-      run: docker push herraksoy/projects:3D-Portfolio-Website
+      run: docker push 8mehmet11/projects:3D-Portfolio-Website
 
     - name: Update Docker Image Tag
-      run: docker tag herraksoy/projects:3D-Portfolio-Website herraksoy/team-projects:3D-Portfolio-Website
+      run: docker tag 8mehmet11/projects:3D-Portfolio-Website 8mehmet11/team-projects:3D-Portfolio-Website
 
     - name: Push Docker image to Dockerhub Private Repo
-      run: docker push herraksoy/team-projects:3D-Portfolio-Website
+      run: docker push 8mehmet11/team-projects:3D-Portfolio-Website
 
 
 # name: Deploy to Docker Repository
